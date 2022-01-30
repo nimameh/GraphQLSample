@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using Api.Data;
 using Api.Data.Repository;
 using Api.GraphQL;
+using Api.GraphQL.Mutations;
 using Api.GraphQL.Queries;
 using GraphiQl;
 using GraphQL.Server;
@@ -39,6 +40,7 @@ namespace Api
             services.AddDbContext<AppDbContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<CoursesRepository>();
             services.AddScoped<CourseQuery>();
+            services.AddScoped<CourseMutation>();
             services.AddScoped<AppSchema>();
 
             services.AddGraphQL().AddSystemTextJson();
