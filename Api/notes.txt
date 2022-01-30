@@ -1,0 +1,7 @@
+﻿add Microsoft.EntityFrameworkCore
+add Microsoft.EntityFrameworkCore.SqlServer
+add Microsoft.EntityFrameworkCore.Tools
+add GraphQL
+add graphiql //for UI of Graphql
+add GraphQL.Server.Ui.GraphiQL
+add GraphQL.Server.Transports.AspNetCore.SystemTextJson
