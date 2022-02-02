@@ -29,8 +29,26 @@ namespace Api.Data.Repository
 
         public Course AddCourse(Course course)
         {
-            AppDbContext.Course.Add(course);
+            var newCourse = new Course()
+            {
+                Name = course.Name,
+                Description = course.Description,
+                DateAdded = course.DateAdded,
+                DateUpdated = course.DateUpdated
+            };
+            AppDbContext.Course.Add(newCourse);
             AppDbContext.SaveChanges();
+
+            foreach (var review in course.Reviews)
+            {
+                var newReview = new Review()
+                {
+                    Comment = review.Comment,
+                    CourseId = newCourse.Id
+                };
+                AppDbContext.Review.Add(newReview);
+                AppDbContext.SaveChanges();
+            }
             return course;
         }
 

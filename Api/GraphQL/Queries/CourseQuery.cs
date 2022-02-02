@@ -15,7 +15,7 @@ namespace Api.GraphQL.Queries
         public CourseQuery(CoursesRepository repository)
         {
             Field<ListGraphType<CourseType>>(
-                "course",
+                "courses",
                 "Returns list of courses",
                 resolve:context=>repository.GetAll());
 
